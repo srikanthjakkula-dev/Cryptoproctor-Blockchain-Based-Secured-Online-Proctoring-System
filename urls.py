@@ -1,22 +1,22 @@
-from django.urls import path
+"""Proctor URL Configuration
 
-from . import views
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/2.1/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+"""
+from django.contrib import admin
+from django.urls import path, include
 
-urlpatterns = [path("index.html", views.index, name="index"),
-	       path('AdminLogin.html', views.AdminLogin, name="AdminLogin"), 
-	       path('StudentLogin.html', views.StudentLogin, name="StudentLogin"), 
-	       path('AddUser.html', views.AddUser, name="AddUser"),
-	       path('AddUserAction', views.AddUserAction, name="AddUserAction"),	
-	       path('AdminLoginAction', views.AdminLoginAction, name="AdminLoginAction"),
-	       path('TeacherLogin.html', views.TeacherLogin, name="TeacherLogin"),
-	       path('TeacherLoginAction', views.TeacherLoginAction, name="TeacherLoginAction"),
-	       path('ViewQuestions', views.ViewQuestions, name="ViewQuestions"),
-	       path('ViewMarks', views.ViewMarks, name="ViewMarks"),
-	       path('AddQuestion', views.AddQuestion, name="AddQuestion"),
-	       path('AddQuestionAction', views.AddQuestionAction, name="AddQuestionAction"),
-	       path('ViewTeacherMarks', views.ViewTeacherMarks, name="ViewTeacherMarks"),
-	       path('WriteExam', views.WriteExam, name="WriteExam"), 
-	       path('WriteExamAction', views.WriteExamAction, name="WriteExamAction"), 	
-	       path('ViewStudentMarks', views.ViewStudentMarks, name="ViewStudentMarks"),	
-	       path('StudentLoginAction', views.StudentLoginAction, name="StudentLoginAction"),
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('ProctorApp.urls')),
 ]
